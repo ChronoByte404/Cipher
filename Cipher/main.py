@@ -17,15 +17,3 @@ class Cipher:
             decrypted_char = chr(encrypted_char ^ key)
             decrypted_chars.append(decrypted_char)
         return "".join(decrypted_chars)
-
-# Example usage:
-key = 42
-original_text = input("You: ")
-
-cipher = Cipher(key, original_text)
-
-encrypted_text = cipher.simple_xor_encrypt(original_text, key)
-decrypted_text = cipher.simple_xor_decrypt(encrypted_text, key)
-
-print("Encrypted text:", encrypted_text)
-print("Decrypted text:", decrypted_text)
