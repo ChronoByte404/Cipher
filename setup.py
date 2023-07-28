@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     # Here is the module name.
-    name="Cipher",
+    name="CipherProgram",
 
     # version of the module
     version="0.0.1",
@@ -36,8 +36,7 @@ setuptools.setup(
     #if module has dependencies i.e. if your package rely on other package at pypi.org
     # then you must add there, in order to download every requirement of package
 
-    install_requires=[,
-        ],
+    install_requires=[],
 
 
     license="The Unlicense",
