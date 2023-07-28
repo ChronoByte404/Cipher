@@ -9,7 +9,7 @@ def create_cipher_key():
 
 def encrypt(message, key):
     encrypted_message = ""
-    for char in message.lower():
+    for char in message:
         if char in key:
             encrypted_message += key[char]
         else:
