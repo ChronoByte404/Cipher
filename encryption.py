@@ -1,6 +1,4 @@
 def create_cipher_key():
-    # Define your custom substitution key here
-    # For simplicity, let's use a predefined key with symbols for each letter
     key = {
         'a': '@', 'b': '!', 'c': '#', 'd': '$', 'e': '%', 'f': '&', 'g': '*',
         'h': '(', 'i': ')', 'j': '+', 'k': '-', 'l': '/', 'm': '=', 'n': '?',
@@ -28,7 +26,6 @@ def decrypt(encrypted_message, key):
             decrypted_message += char
     return decrypted_message
 
-# Example usage:
 cipher_key = create_cipher_key()
 plaintext = input("You: ")
 encrypted_text = encrypt(plaintext, cipher_key)
