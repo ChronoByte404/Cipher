@@ -1,35 +1,23 @@
-def create_cipher_key():
-    key = {
-        'a': '@', 'b': '!', 'c': '#', 'd': '$', 'e': '%', 'f': '&', 'g': '*',
-        'h': '(', 'i': ')', 'j': '+', 'k': '-', 'l': '/', 'm': '=', 'n': '?',
-        'o': '[', 'p': ']', 'q': '{', 'r': '}', 's': '<', 't': '>', 'u': '|',
-        'v': '^', 'w': ':', 'x': ';', 'y': '"', 'z': "'"
-    }
-    return key
+def simple_xor_encrypt(text, key):
+    encrypted_chars = []
+    for char in text:
+        encrypted_char = ord(char) ^ key
+        encrypted_chars.append(encrypted_char)
+    return bytes(encrypted_chars)
 
-def encrypt(message, key):
-    encrypted_message = ""
-    for char in message:
-        if char in key:
-            encrypted_message += key[char]
-        else:
-            encrypted_message += char
-    return encrypted_message
+def simple_xor_decrypt(encrypted_text, key):
+    decrypted_chars = []
+    for encrypted_char in encrypted_text:
+        decrypted_char = chr(encrypted_char ^ key)
+        decrypted_chars.append(decrypted_char)
+    return "".join(decrypted_chars)
 
-def decrypt(encrypted_message, key):
-    reverse_key = {value: key for key, value in key.items()}
-    decrypted_message = ""
-    for char in encrypted_message:
-        if char in reverse_key:
-            decrypted_message += reverse_key[char]
-        else:
-            decrypted_message += char
-    return decrypted_message
+# Example usage:
+key = 42
+original_text = input("You: ")
 
-cipher_key = create_cipher_key()
-plaintext = input("You: ")
-encrypted_text = encrypt(plaintext, cipher_key)
-print("Encrypted:", encrypted_text)
+encrypted_text = simple_xor_encrypt(original_text, key)
+decrypted_text = simple_xor_decrypt(encrypted_text, key)
 
-decrypted_text = decrypt(encrypted_text, cipher_key)
-print("Decrypted:", decrypted_text)
+print("Encrypted text:", encrypted_text)
+print("Decrypted text:", decrypted_text)
